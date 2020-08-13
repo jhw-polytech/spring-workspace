@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 					 http://www.springframework.org/schema/beans/spring-beans.xsd ">
+	<bean class="di.xml.n01.Car" id="car" />
+	<bean class="di.xml.n01.HankookTire" id="tire" />
+	
+	<bean class="di.xml.n01.HankookTire" id="hankook" />
+	<bean class="di.xml.n01.KumhoTire" id="kumho" />
+	
+	<!-- Car 클래스가 Tire 클래스에 대해 의존성을 갖고 있다고 xml에 명시할 수 있음 -->
+	<bean calass="di.xml.n01.Car" id="car2" >
+		<property name="tire" ref="kumho"></property>
+		<!-- name="tire" -> meaning, setTire() -->
+		<!-- ref="kumho" -> meaning, id가 Kumho인 객체를 setter로 주입시키겠다 -->
+	</bean>	
+</beans>

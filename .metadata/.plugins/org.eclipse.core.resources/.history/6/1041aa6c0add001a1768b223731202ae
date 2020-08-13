@@ -1,0 +1,9 @@
+package basic;
+
+public class HelloSingle {
+	
+	private HelloSingle() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

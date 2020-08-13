@@ -5,7 +5,7 @@
 	<groupId>kr.ac.kopo</groupId>
 	<artifactId>Lecture-Spring</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-
+	<!-- <aaa></aaa> : unknown tag 에러가 뜬다. 위에 xsi:schemaLocation 부분에 쓸 수 있는 태그들이 규정되어 있기 때문이다. 이를 벗어나는 태그는 사용할 수 없다. -->
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
 		<dependency>

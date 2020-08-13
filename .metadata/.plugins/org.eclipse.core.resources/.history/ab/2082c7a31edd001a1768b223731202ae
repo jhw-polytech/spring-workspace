@@ -1,0 +1,12 @@
+package di.basic;
+
+public class DriverMain {
+	
+	public static void main(String[] args) {
+		
+		Tire tire = new HankookTire();		
+		Car car = new Car(tire); // 의존성이 있는 객체를 넣어주겠다
+		car.prnTireBrand();
+	}
+
+}

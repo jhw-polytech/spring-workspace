@@ -1,0 +1,22 @@
+package di.xml.n02;
+
+public class Car {
+	
+	private Tire tire;
+	
+	public Car() {
+		System.out.println("Car() 생성자 호출 . . .");
+	}
+	
+	public Car(Tire tire) {
+		this.tire = tire;
+		
+	}
+	
+	public void prnTireBrand() {
+		
+		
+		
+	}
+
+}

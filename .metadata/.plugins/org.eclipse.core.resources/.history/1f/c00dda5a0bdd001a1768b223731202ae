@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 					 http://www.springframework.org/schema/beans/spring-beans.xsd ">
+ 	<!-- 아래에 적어두면 Hello hello = new Hello() 와 같이 객체를 생성해준다. -->
+ 	<!-- 일반적으로 한 클래스에서 2개 이상 객체생성은 하지 않지만, 아래는 그냥 예시로 hello, hell2 인스턴스 생성함 -->				 
+	<bean class="basic.Hello" id="hello" lazy-init="true" /> <!-- 패키지명(basic)까지 함께 써줘야 한다. -->
+	<bean class="basic.Hello" id="hello2" lazy-init="true" />  <!-- lazy-init은 getBean()으로 누군가 원할 때 만들어주라는 뜻 -->
+	
+	<bean class="basic.HelloSingle" id="hs" factory-method="getInstance" />
+	<bean class="basic.HelloSingle" id="hs2" factory-method="getIns" />
+</beans>

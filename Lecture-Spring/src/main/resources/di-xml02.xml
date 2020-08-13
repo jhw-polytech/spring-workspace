@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 					 http://www.springframework.org/schema/beans/spring-beans.xsd ">		 
+ 	<bean class="di.xml.n02.HankookTire" id="hankook" />
+ 	<bean class="di.xml.n02.KumhoTire" id="kumho" />
+	<bean class="di.xml.n02.Car" id="car"> <!-- 이렇게만 만들어놓으면 매개변수 없는 생성자가 실행되어 NullPointerException 오류가 남 -->
+		<!-- constructor-arg : 생성자 주입을 위한 태그  -->
+		<constructor-arg ref="hankook"/>
+	</bean>
+	
+	<bean class="di.xml.n02.Car" id="car2">
+		<constructor-arg ref="hankook" index="0" />
+		<constructor-arg ref="kumho" index="1" />
+		<!-- index 속성을 명시하지 않으면 자동으로 순서대로 0, 1, 2, ... 순으로 가는데, 이경우 순서를 바꾸려면 태그 순서를 순서에 맞게 바꿔줘야 한다. 따라서 index 속성을  -->
+	</bean>
+	<bean class="di.xml.n02.Car" id="car3">
+		<constructor-arg ref="kumho" />
+		<constructor-arg value="hello" /> <!-- value 속성은 상수값을 넣고싶을 때 써준다. -->		
+	</bean>
+</beans>

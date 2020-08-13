@@ -1,0 +1,11 @@
+package basic;
+
+public class HelloSingle {
+	
+	private static HelloSingle instance = null;
+	
+	private HelloSingle() {
+		System.out.println("HelloSingle °´Ã¼ ·Îµù . . .");
+	}
+
+}

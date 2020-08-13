@@ -1,0 +1,9 @@
+package basic;
+
+public class Hello {
+	
+	public Hello() {
+		System.out.println("Hello °´Ã¼ ·Îµù . . .");
+	}
+
+}

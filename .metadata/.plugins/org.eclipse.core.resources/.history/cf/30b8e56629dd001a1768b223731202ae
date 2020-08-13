@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 					 http://www.springframework.org/schema/beans/spring-beans.xsd ">		 
+ 	<bean class="di.xml.n02.HankookTire" id="hankook" />
+ 	<bean class="di.xml.n02.KumhoTire" id="kumho" />
+	<bean class="di.xml.n02.Car" id="car"> <!-- 이렇게만 만들어놓으면 매개변수 없는 생성자가 실행되어 NullPointerException 오류가 남 -->
+		<!-- constructor-arg : 생성자 주입을 위한 태그  -->
+		<constructor-arg ref="hankook"/>
+	</bean>
+</beans>
