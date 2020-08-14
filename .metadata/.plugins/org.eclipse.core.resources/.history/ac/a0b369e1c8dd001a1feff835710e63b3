@@ -1,0 +1,23 @@
+package di.quiz.calculator.solution;
+
+
+public class DITestMain {
+
+	public static void main(String[] args) {
+		
+		/* ===> 아래 객체생성 과정을 xml에서 대체
+		Calculator c = new Calculator();
+		MyCalculator my = new MyCalculator(c);
+		*/
+		
+		
+		my.setFirstNum(15);
+		my.setSecondNum(4);
+		
+		my.add();
+		my.sub();
+		my.mul();
+		my.div();
+		
+	}
+}

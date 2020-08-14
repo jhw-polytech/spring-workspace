@@ -22,7 +22,7 @@ public class Car {
 	//}	
 	
 	// Aggregation (매개변수로 객체를 받아옴)
-	// 생성자 주입(Constructor injection) --- 의존성을 낮춘다?
+	// 생성자 주입(Constructor injection) --- 의존성을 낮춘다
 	public Car(Tire tire) { // 차 주문할 때부터 타이어가 함께 나옴. Tire 객체를 초기셋팅값이 정해져있다(내가 정한다)
 		this.tire = tire;		
 	}

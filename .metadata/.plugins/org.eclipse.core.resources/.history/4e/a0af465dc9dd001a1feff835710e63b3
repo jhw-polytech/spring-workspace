@@ -1,0 +1,11 @@
+package di.quiz.calculator.solution;
+
+public class DITestMain02 {
+
+	public static void main(String[] args) {
+		MyCalculator my = new MyCalculator(15, 4, new Calculator());
+		
+		
+	}
+	
+}

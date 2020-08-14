@@ -11,3 +11,31 @@
 1597300514048	Copy compilation units
 1597302909009	Delete element
 1597302996727	Delete element
+1597365346912	Delete element
+1597365835588	Rename package 'practice.calculator'
+1597365845760	Rename package 'practice.calculator.solution'
+1597366385988	Rename compilation unit 'DiTestMain.java'
+1597366809684	Copy file
+1597367315219	Delete elements
+1597367335259	Delete element
+1597368432269	Delete elements
+1597368632454	Rename package 'di.quiz.calculator.solution'
+1597368671109	Rename package 'di.test01.Calculator'
+1597371929074	Copy package
+1597372012189	Copy file
+1597380227884	Copy package
+1597380234563	Copy file
+1597380238624	Delete element
+1597380244708	Copy file
+1597381109616	Copy package
+1597381128204	Delete elements
+1597381264939	Rename source folder 'titest02'
+1597381287388	Copy package
+1597381397651	Delete element
+1597381416300	Delete element
+1597381446216	Copy file
+1597381449054	Delete element
+1597383092877	Copy package
+1597383101769	Copy folder
+1597386295056	Copy package
+1597386337156	Delete element

@@ -1,0 +1,8 @@
+package di.java;
+
+/*
+ * 기존에 xml이 하던 객체생성을 자바 파일이 하게 하기 위한 클래스
+ */
+public class Config {
+
+}

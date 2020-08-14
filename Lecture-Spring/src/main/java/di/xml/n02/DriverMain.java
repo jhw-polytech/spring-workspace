@@ -23,8 +23,9 @@ public class DriverMain {
 		 * 기존 생성자 의존성 주입방식
 		Tire tire = new HankookTire();
 		Car car = new Car(tire);
-		car.prnTireBrand();		
 		*/	
+
+		car.prnTireBrand();		
 	
 	}
 }

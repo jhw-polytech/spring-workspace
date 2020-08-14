@@ -1,0 +1,9 @@
+package practice.calculator.solution;
+
+public class Calculator {
+	
+	public void addition(int firstNum, int secondNum) {
+		
+	}
+
+}

@@ -1,0 +1,9 @@
+package di.quiz.calculator.solution;
+
+public class DITestMain02 {
+
+	public static void main(String[] args) {
+		
+	}
+	
+}

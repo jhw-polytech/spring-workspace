@@ -1,0 +1,12 @@
+package practice.calculator;
+
+public class Calculator {
+	
+	public void addition() {
+		
+		
+		
+		
+	}
+
+}

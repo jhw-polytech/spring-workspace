@@ -11,8 +11,7 @@ public class Car {
 	public Car(Tire tire) {
 		System.out.println("Car(Tire) 생성자 호출 . . .");
 		this.tire = tire;		
-	}
-	
+	}	
 	
 	public Car(Tire tire01, Tire tire02) {
 		System.out.println("Car(Tire, Tire) 생성자 호출 . . .");

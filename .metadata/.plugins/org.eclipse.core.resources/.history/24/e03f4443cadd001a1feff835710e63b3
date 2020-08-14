@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   					   http://www.springframework.org/schema/beans/spring-beans.xsd " >
+	   					   
+	<bean class="di.test01.Calculator" id="cal" />	   					   
+	<bean class="di.test01.MyCalculator" id="myCal">
+		<constructor-arg ref="cal" />
+		<constructor-arg value="15" />  <!-- 변수가 아닌 일반적인 정수는 ref(x) value(o) -->
+		<constructor-arg>
+			<value>4</value>
+		</constructor-arg>
+	</bean>
+</beans>

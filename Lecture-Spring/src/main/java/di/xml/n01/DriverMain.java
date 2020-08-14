@@ -11,7 +11,7 @@ public class DriverMain {
 
 	public static void main(String[] args) {
 		
-		ApplicationContext context = new GenericXmlApplicationContext("di-xml01.xml");	// xml 파일 읽어오기기
+		ApplicationContext context = new GenericXmlApplicationContext("di-xml01.xml");	// xml 파일 읽어오기
 		
 		/* 방법 2 */
 		Car car = (Car)context.getBean("car2");
@@ -19,6 +19,7 @@ public class DriverMain {
 		
 		
 		/*
+		 * 방법 1)
 		Car car = (Car)context.getBean("car");
 		Tire tire = (Tire)context.getBean("tire");
 		car.setTire(tire);
@@ -27,9 +28,8 @@ public class DriverMain {
 		*/
 		
 		
-		
 		/*
-		 * 방법 1)
+		 * 참고 - Basic )
 		Car car = new Car();
 		
 		Tire tire = new HankookTire();

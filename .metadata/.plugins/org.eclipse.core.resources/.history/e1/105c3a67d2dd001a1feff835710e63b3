@@ -1,0 +1,12 @@
+package di.collection;
+
+import java.util.Map;
+
+public class MapAddress {
+
+	private Map<String, String> address;
+	
+	
+	
+	
+}

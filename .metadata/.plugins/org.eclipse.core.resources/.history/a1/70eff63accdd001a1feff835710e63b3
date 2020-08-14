@@ -1,0 +1,15 @@
+package di.collection;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListMain {
+	
+	public static void main(String[] args) {
+		
+		List<String> address = new ArrayList<String>();
+		ListAddress list = new ListAddress(address);
+		
+	}
+
+}
