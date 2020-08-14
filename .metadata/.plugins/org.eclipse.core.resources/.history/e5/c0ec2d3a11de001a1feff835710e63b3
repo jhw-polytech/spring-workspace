@@ -1,0 +1,10 @@
+package di.quiz.shapes;
+
+public class Square implements Shape {
+
+	@Override
+	public int getArea(int side, int side2) {
+		return side1 * side2;
+	}
+
+}

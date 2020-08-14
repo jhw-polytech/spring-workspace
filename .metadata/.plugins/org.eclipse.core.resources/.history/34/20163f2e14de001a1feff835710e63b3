@@ -1,0 +1,11 @@
+package di.quiz.shapes;
+
+@Com
+public class Rectangle implements Shape {
+
+	@Override
+	public double getArea(int side, int side2) {
+		return side * side2;
+	}
+	
+}

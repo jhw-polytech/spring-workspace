@@ -1,0 +1,14 @@
+package di.quiz.shapes;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class Area {
+	
+	@Autowired(required = false)
+	Shape shape; // 의존관계 발생
+	
+	public Area() {
+		
+	} 	
+
+}

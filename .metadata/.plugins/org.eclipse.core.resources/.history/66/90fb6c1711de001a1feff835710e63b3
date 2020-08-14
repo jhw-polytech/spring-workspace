@@ -1,0 +1,11 @@
+package di.quiz.shapes;
+
+public class Square implements Shape {
+
+	@Override
+	public int getArea() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

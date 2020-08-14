@@ -1,0 +1,14 @@
+package di.quiz.shapes;
+
+public class Area {
+	
+	Shape shape; // 의존성 생성
+	
+	public Area() {
+
+	} 
+	
+	
+	
+
+}

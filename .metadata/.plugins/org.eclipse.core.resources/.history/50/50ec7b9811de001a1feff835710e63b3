@@ -1,0 +1,8 @@
+package di.quiz.shapes;
+
+public class AreaMain {
+
+	public static void main(String[] args) {
+		
+	}
+}

@@ -1,0 +1,11 @@
+package di.quiz.shapes;
+
+public class Circle implements Shape {
+	
+	@Override
+	public double getArea(int side, int side2) {
+		
+		return side * 3.14;
+	}
+
+}

@@ -1,0 +1,9 @@
+package di.quiz.shapes;
+
+import org.springframework.stereotype.Component;
+
+public interface Shape {
+	
+	public void getArea(int side, int side2);
+
+}

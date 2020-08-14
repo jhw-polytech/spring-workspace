@@ -1,0 +1,80 @@
+package di.quiz.shapes;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
+public class Area {
+
+	@Autowired(required = false)
+	Shape shape; // 의존관계 발생
+	int width;
+	int height;
+
+	public Area() {
+
+	}
+
+	public Area(Shape shape) {
+		super();
+		this.shape = shape;
+	}
+
+	public Area(Shape shape, int width, int height) {
+		super();
+		this.shape = shape;
+		this.width = width;
+		this.height = height;
+	}
+
+	public Shape getShape() {
+		return shape;
+	}
+
+	public void setShape(Shape shape) {
+		this.shape = shape;
+	}
+
+	public int getwidth() {
+		return width;
+	}
+
+	public void setwidth(int width) {
+		this.width = width;
+	}
+
+	public int getheight() {
+		return height;
+	}
+
+	public void setheight(int height) {
+		this.height = height;
+	}
+
+	public void setHeight(int width, int height) {
+
+		this.width = width;
+		this.height = height;
+
+		System.out.println("hi");
+
+	}
+
+	public void squ() {
+		shape.getArea(width, height);
+	}
+	
+	public void rec() {
+		shape.getArea(width, height);
+	}
+	
+	public void tri() {
+		shape.getArea(width, height);
+	}
+	
+	public void cir() {
+		shape.getArea(width, height);
+	}
+
+}

@@ -7,7 +7,7 @@ public class CalculatorMain {
 	
 	public static void main(String[] args) {
 		
-		ApplicationContext context = new GenericXmlApplicationContext("calculator.xml");
+		ApplicationContext context = new GenericXmlApplicationContext("di-calculator.xml");
 		
 		// ¹æ¹ý 1
 		Calculator cal = (Calculator) context.getBean("cal");

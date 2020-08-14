@@ -1,0 +1,28 @@
+package di.quiz.shapes;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
+public class Area {
+	
+	@Autowired(required = false)
+	@Qualifier("")
+	Shape shape; // 의존관계 발생
+	int side;
+	int side2;
+	
+	public Area() {
+		
+	}
+	
+	
+	
+	
+	
+	public double prnArea() {
+		
+	}
+
+}

@@ -1,0 +1,5 @@
+package di.quiz.shapes;
+
+public class Rectangle implements Shape {
+
+}

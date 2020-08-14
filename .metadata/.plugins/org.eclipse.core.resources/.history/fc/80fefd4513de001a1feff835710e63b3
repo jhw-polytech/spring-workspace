@@ -1,0 +1,12 @@
+package di.quiz.shapes;
+
+public class Area {
+	
+	@Autowired(required = false)
+	Shape shape; // 의존관계 발생
+	
+	public Area() {
+		
+	} 	
+
+}

@@ -1,0 +1,9 @@
+package di.quiz.shapes;
+
+public interface Shape {
+	
+	public void getArea(int width, int height);
+	
+	// ´Ù¿µ´ÔÀº getShape, getArea ³Ö¾îÁÜ
+
+}
