@@ -1,0 +1,17 @@
+package aop.java;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+import aop.pojo.Employee;
+
+public class EmpMain {
+
+	public static void main(String[] args) {
+		ApplicationContext context = new AnnotationConfigApplicationContext(config.class);
+		
+		Employee e = context.getBean("programmer", Employee.class);
+		e.work();
+	}
+}

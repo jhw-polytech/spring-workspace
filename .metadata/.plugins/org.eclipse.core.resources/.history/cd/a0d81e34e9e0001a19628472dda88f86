@@ -1,0 +1,9 @@
+package aop.pojo;
+/*
+ * 공통의 코드
+ */
+public class Action {
+	
+	
+
+}
