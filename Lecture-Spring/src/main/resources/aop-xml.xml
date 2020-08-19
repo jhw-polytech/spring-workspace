@@ -14,10 +14,10 @@
 			
 	<aop:config>
 		<!-- pointcut의 경로를 따로 <aop:pointcut>태그로 지정해둘 수도 있다 -->
-		<aop:pointcut expression="execution(* aop.xml.*.work())" id="pointcut01" />
+		<aop:pointcut expression="execution(* aop.xml.*.work(..))" id="pointcut01" />
 		<aop:aspect ref="action"> <!-- 공통모드로 설정 -->
-			<aop:before method="gotoOffice" pointcut="pointcut01" />
-			<aop:after method="getoffOffice" pointcut="pointcut01" />
+			<aop:before method="gotoOffice" pointcut-ref="pointcut01" />
+			<aop:after method="getoffOffice" pointcut-ref="pointcut01" />
 
 <!-- 와일드카드 안씀		<aop:before method="gotoOffice" pointcut="execution(public void aop.xml.Programmer.work())" /> -->
 <!-- 와일드카드 씀		<aop:before method="gotoOffice" pointcut="execution(public void aop.xml.*.work())" />

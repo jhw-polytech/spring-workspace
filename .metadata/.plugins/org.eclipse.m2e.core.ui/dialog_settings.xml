@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\spring-workspace\spring-mvc\src\main\webapp"/>
 			<item value="D:\spring-workspace"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -48,8 +49,10 @@
 			<item value="kr.ac.kopo"/>
 		</list>
 		<list key="name">
+			<item value="spring-mvc"/>
 		</list>
 		<list key="artifactId">
+			<item value="spring-mvc"/>
 			<item value="Lecture-Spring"/>
 		</list>
 		<list key="projectNameTemplate">
