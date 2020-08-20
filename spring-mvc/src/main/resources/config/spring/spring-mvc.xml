@@ -11,8 +11,35 @@
     http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<context:component-scan base-package="kr.co.mlec" />
-    <mvc:annotation-driven /> <!-- annotation config와 같은 말 auto-wired, component, service 등 설정 -->
+    
+    <mvc:annotation-driven > <!-- annotation config와 같은 말 auto-wired, component, service 등 설정 -->
+    	<mvc:message-converters>
+    		<bean 
+    			class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+    			<property name="supportedMediaTypes">
+    				<list>
+    					<value>text/html; charset=utf-8</value>
+    					<value>application/json; charset=utf-8</value>
+    				</list>
+    			</property>
+    		</bean>
+    		<bean class="org.springframework.http.converter.StringHttpMessageConverter" >
+    			<property name="supportedMediaTypes">
+    				<list>
+    					<value>text/html; charset=UTF-8</value>
+    				</list>
+    			</property>
+    		</bean>
+    	</mvc:message-converters>
+    </mvc:annotation-driven>
+    
+    <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+    			id="multipartResolver">
+    	<property name="maxUploadSize" value="10485760" />
+    </bean>
+    
 	<mvc:default-servlet-handler /><!-- 요청에 대한 처리들을 해주겠다 -->
+	<mvc:view-controller path="/file/fileUploadForm.do" view-name="file/fileUploadForm" />
 	<mvc:view-resolvers><!-- 요청은 servlet, 응답은 jsp가 하는 걸 알고있는데, 매번 ~.jsp 써주기 귀찮아서 이거 자동으로 붙이겠다는 뜻 -->
 		<mvc:jsp prefix="/WEB-INF/jsp/" suffix=".jsp" />
 		<!-- WEB-INF에는 외부에서 직접 접근할 수 없기 때문에 보안이 좋다. 이미지는 이 폴더에 넣으면 안됨! -->
