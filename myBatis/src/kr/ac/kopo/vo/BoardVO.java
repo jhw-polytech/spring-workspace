@@ -7,8 +7,9 @@ public class BoardVO {
 	private String writer;
 	private String content;
 	private int viewCnt;
-
-	private regDate;
+	private String regDate;
+	
+	private int[] nos;
 	
 	public BoardVO() {
 		// TODO Auto-generated constructor stub
@@ -54,10 +55,29 @@ public class BoardVO {
 		this.viewCnt = viewCnt;
 	}
 
+	public String getRegDate() {
+		return regDate;
+	}
+
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
+	}
+
+	
+	
+	public int[] getNos() {
+		return nos;
+	}
+
+	public void setNos(int[] nos) {
+		this.nos = nos;
+	}
+
 	@Override
 	public String toString() {
 		return "BoardVO [no=" + no + ", title=" + title + ", writer=" + writer + ", content=" + content + ", viewCnt="
-				+ viewCnt + "]";
+				+ viewCnt + ", regDate=" + regDate + "]";
 	}
-
+	
+	
 }

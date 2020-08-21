@@ -30,6 +30,7 @@ public class MybatisMain {
 		*/
 		
 		BoardDAO dao = new BoardDAO();
+		dao.work();
 	}
 
 }

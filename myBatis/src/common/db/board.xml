@@ -5,17 +5,119 @@
 <!-- <mapper namespace="aaa">
  namespace의 이름은 규약이 없다! 아무렇게나 적어도 된다. 그러나 보통 여러 xml 파일에 id가 겹칠 것을 우려해 규칙을 정해두는 편   -->
 <mapper namespace="dao.BoardDAO">
-	<insert id="insertBoard" parameterType="kr.ac.kopo.vo.BoardVO"> <!-- 변수명이 아니라 type을 쓰는것임 주의! -->
+
+	<!-- 결과값의 컬럼명과 속성명을 set해준다 -->
+	<resultMap type="kr.ac.kopo.vo.BoardVO" id="boardMap" >
+		<!-- 컬럼명과 속성명이 같은 것들은 안 써줘도 된다!
+		<result column="no" property="no" />
+		<result column="title" property="title" />
+		<result column="writer" property="writer" />
+		<result column="content" property="content" />
+		-->
+		<result column="view_cnt" property="viewCnt" />
+		<result column="reg_date" property="regDate" />
+	</resultMap>
+
+	<sql id="selectAll">
+		select no, title, writer, content, view_cnt viewCnt, reg_date regDate
+		from t_board
+	</sql>
+
+	<insert id="insertBoard" parameterType="boardVO"> <!-- 변수명이 아니라 type을 쓰는것임 주의! -->
 	<!-- 이 태그의 이름은 dao.BoardDAO.inserBoard인 것과 같다 -->
-		insert into t_baord(no, title, writer, content)
+		insert into t_board(no, title, writer, content)
 			<!-- values(seq_t_board_no.nextval, 'mybatis', 'hong', '삽입연습입니다') -->
-			 values(seq_t_board_no.nextval, #{ title }, #{ writer }, #{ content } ) 
+			 values(seq_t_board_no.nextval, #{title}, #{ writer }, #{ content } ) 
 			<!-- #{ title } 이라고 하면 getter라고 인식함  -->
 	</insert>
+	<select id="selectBoard" resultType="boardVO">
+		<include refid="selectAll" />
+		order by no desc
+	</select>
+	<select id="selectByNo" resultType="boardVO" parameterType="int">
+		<include refid="selectAll" />
+		where no = #{ no } <!-- 파라미터가 한개인 경우 괄호 안에 들어가는 이름은 상관 없다 -->
+	</select>
+	<select id="selectByNo2" resultType="boardVO" parameterType="boardVO">
+		<include refid="selectAll" />
+		where no = #{ no }
+	</select>
+	<select id="selectByNo3" parameterType="boardVO" resultMap="boardMap">
+		select no, title, writer, content, view_cnt, reg_date
+		from t_board
+		where no = #{ no }
+	</select>
 	
-	<select>
-		select *
+	<select id="selectWhere" parameterType="boardVO" resultMap="boardMap">
+		<include refid="selectAll" />
+		<where>
+		<!-- 파라미터가 여러개일 때는 이름을 아무렇게나 해줄 수 없다 -->
+			<if test="title != null ">
+			title = #{ title }
+			</if>
+			<if test="writer != null ">
+			and writer = #{ writer }
+			</if>
+		</where>			 
+	</select>
+	<select id="selectWhere2" parameterType="boardVO" resultType="boardVO">
+		<include refid="selectAll" />
+		<!-- where title like #{ title }	-->
+		where title like '${ title }%'		 
+	</select>
+	
+	<select id="selectNos" parameterType="boardVO" resultType="boardVO">
+		<include refid="selectAll" />
+		where no in 
+			<foreach collection="nos" item="bno" 
+				separator="," open="("  close=")">
+				#{ bno }
+			</foreach>		
+	</select>
+	<select id="selectNos2" parameterType="int[]" resultType="boardVO">
+		<include refid="selectAll" />
+		where no in 
+			<foreach collection="array" item="bno" open="(" separator="," close=")">
+			<!-- int[]로 받아올 때, 특정한 이름이 없으므로 collection에 array라고 써준다. -->
+				#{ bno }
+			</foreach>		
+	</select>
+	<select id="selectNos3" parameterType="int[]" resultType="boardVO">
+		<include refid="selectAll" />
+		where no in 
+			<foreach collection="array" item="bno" open="(" separator="," close=")" index="index">
+			<!-- int[]로 받아올 때, 특정한 이름이 없으므로 collection에 array라고 써준다. -->
+				${ array[index] }
+				<!-- #{index}는 숫자를 말함, ${array[index]}는 번지를 말함 -->
+			</foreach>		
+	</select>
+	
+	<select id="selectMap" parameterType="Map" resultType="boardVO">
+		<include refid="selectAll" />
+		where title = #{title} and writer = ${writer}
+	</select>
+	
+	<select id="selectMap2" parameterType="int" resultType="map">
+		<include refid="selectAll" />
+		where no = #{no}
+	</select>
+
+	<!--
+	<select id="selectBoard" resultType="boardVO">
+		select no, title, writer, content, view_cnt as viewCnt, reg_date as regDate
+		// 자바로 넘기는 과정에서 view_cnt 등은 표기법이 달라 오류가 날 수 있으므로, alias를 이용하도록 한다
 		from t_board
 		order by no desc
 	</select>
+	<select id="selectByNo" resultType="boardVO" parameterType="int">
+		select no, title, writer, content, view_cnt as viewCnt, reg_date as regDate
+		from t_board
+		where no = #{ no } // 파라미터가 한개인 경우 괄호 안에 들어가는 이름은 상관 없다 
+	</select>
+	<select id="selectByNo2" resultType="boardVO" parameterType="boardVO">
+		select no, title, writer, content, view_cnt viewCnt, reg_date regDate
+		from t_board
+		where no = #{ no }
+	</select>
+	-->
 </mapper>
