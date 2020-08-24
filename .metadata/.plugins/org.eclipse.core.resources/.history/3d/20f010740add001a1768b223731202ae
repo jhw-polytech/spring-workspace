@@ -1,9 +1,0 @@
-package basic;
-
-public class HelloSingle {
-	
-	private HelloSingle() {
-		System.out.println("HelloSingle °´Ã¼ ·Îµù . . .");
-	}
-
-}

@@ -13,7 +13,7 @@ import kr.ac.kopo.vo.BoardVO;
 
 public class BoardDAO {
 
-	private SqlSession session; // session °´Ã¼¸¦ °¡Áö°í¿Í¾ß ÇÑ´Ù.
+	private SqlSession session; // session ê°ì²´ë¥¼ ê°€ì§€ê³ ì™€ì•¼ í•œë‹¤.
 
 	public BoardDAO() {
 		this.session = new MyConfig().getInstance();
@@ -31,23 +31,23 @@ public class BoardDAO {
 		 selectMap2();
 	}
 
-	// ¿ÜºÎ¿¡¼­ Á¢±Ù ¸øÇÏ°í work()·Î¸¸ Á¢±Ù °¡´ÉÇÏ°Ô private ½áÁÜ
-	// ²À ÀÌ·¸°Ô ÇÏÁö ¾Ê¾Æµµ µÊ! ±³¼ö´ÔÀÌ ¾²½Ã´Â ¹æ¹ıÀÓ
+	// ì™¸ë¶€ì—ì„œ ì ‘ê·¼ ëª»í•˜ê³  work()ë¡œë§Œ ì ‘ê·¼ ê°€ëŠ¥í•˜ê²Œ private ì¨ì¤Œ
+	// ê¼­ ì´ë ‡ê²Œ í•˜ì§€ ì•Šì•„ë„ ë¨! êµìˆ˜ë‹˜ì´ ì“°ì‹œëŠ” ë°©ë²•ì„
 	private void insert() {
 		BoardVO board = new BoardVO();
-		board.setTitle("»ğÀÔ¿¬½À . . .");
+		board.setTitle("ì‚½ì…ì—°ìŠµ . . .");
 		board.setWriter("user");
-		board.setContent("VO ÀÌ¿ëÇÏ¿© »ğÀÔ . . .");
+		board.setContent("VO ì´ìš©í•˜ì—¬ ì‚½ì… . . .");
 
 		session.insert("dao.BoardDAO.insertBoard", board);
 		session.commit();
 
-		System.out.println("»ğÀÔ¿Ï·á. . .");
+		System.out.println("ì‚½ì…ì™„ë£Œ. . .");
 	}
 
 	private void select() {
 		// BoardVO board = session.selectOne("dao.BoardDAO.selectBoard");
-		// resultTypeÀ» boardVO·Î ÇØµÎ¾ú±â ¶§¹®¿¡ ¸í½ÃÀû Çüº¯È¯ÀÌ ÇÊ¿ä ¾ø´Ù.
+		// resultTypeì„ boardVOë¡œ í•´ë‘ì—ˆê¸° ë•Œë¬¸ì— ëª…ì‹œì  í˜•ë³€í™˜ì´ í•„ìš” ì—†ë‹¤.
 
 		List<BoardVO> list = session.selectList("dao.BoardDAO.selectBoard");
 
@@ -57,12 +57,12 @@ public class BoardDAO {
 	}
 
 	private void selectOne() {
-		// 24¹ø °Ô½Ã±Û Á¶È¸
+		// 24ë²ˆ ê²Œì‹œê¸€ ì¡°íšŒ
 
-		// selectByNo - ¸Å°³º¯¼ö°¡ int
+		// selectByNo - ë§¤ê°œë³€ìˆ˜ê°€ int
 		// BoardVO board = session.selectOne("dao.BoardDAO.selectByNo", 1);
 
-		// selectByNo2 - ¸Å°³º¯¼ö°¡ VO
+		// selectByNo2 - ë§¤ê°œë³€ìˆ˜ê°€ VO
 		BoardVO vo = new BoardVO();
 		vo.setNo(1);
 		// BoardVO board = session.selectOne("dao.BoardDAO.selectByNo2", vo);
@@ -75,16 +75,16 @@ public class BoardDAO {
 	private void selectWhere() {
 		BoardVO vo = new BoardVO();
 
-		// ¹æ¹ı1. Á¦¸ñÀÌ "hi", ÀÛ¼ºÀÚ°¡ "kim"ÀÎ °Ô½Ã¹° Á¶È¸
+		// ë°©ë²•1. ì œëª©ì´ "hi", ì‘ì„±ìê°€ "kim"ì¸ ê²Œì‹œë¬¼ ì¡°íšŒ
 		// where title = 'hi' and writer = 'user'
 //		vo.setTitle("hi");
 //		vo.setWriter("kim");
 
-		// ¹æ¹ı2. Á¦¸ñÀÌ "hi"ÀÎ °Ô½Ã¹° Á¶È¸
+		// ë°©ë²•2. ì œëª©ì´ "hi"ì¸ ê²Œì‹œë¬¼ ì¡°íšŒ
 		// where title = 'hi'
 //		vo.setTitle("hi");
 
-		// ¹æ¹ı3. ÀÛ¼ºÀÚ°¡ "user"ÀÎ °Ô½Ã¹° Á¶È¸
+		// ë°©ë²•3. ì‘ì„±ìê°€ "user"ì¸ ê²Œì‹œë¬¼ ì¡°íšŒ
 		// where writer = 'user'
 		vo.setWriter("user");
 
@@ -95,9 +95,9 @@ public class BoardDAO {
 	}
 
 	private void selectWhere2() {
-		// Á¦¸ñÀÌ 'Á¦¸ñ'À¸·Î ½ÃÀÛÇÏ°í, »ç¿ëÀÚ°¡ 'user'ÀÎ °Ô½Ã¹° Á¶È¸
+		// ì œëª©ì´ 'ì œëª©'ìœ¼ë¡œ ì‹œì‘í•˜ê³ , ì‚¬ìš©ìê°€ 'user'ì¸ ê²Œì‹œë¬¼ ì¡°íšŒ
 		BoardVO vo = new BoardVO();
-		vo.setTitle("Á¦¸ñ");
+		vo.setTitle("ì œëª©");
 		vo.setWriter("user");
 	}
 
@@ -134,9 +134,9 @@ public class BoardDAO {
 
 	}
 
-	@Test // org.junitÀÇ Test ¾î³ëÅ×ÀÌ¼ÇÀ» ´Ş¸é selectMap2()¸¸ Å×½ºÆ® ÇØº¼°Å¶ó´Â ¶æ
+	@Test // org.junitì˜ Test ì–´ë…¸í…Œì´ì…˜ì„ ë‹¬ë©´ selectMap2()ë§Œ í…ŒìŠ¤íŠ¸ í•´ë³¼ê±°ë¼ëŠ” ëœ»
 	private void selectMap2() {
-		// 15¹ø °Ô½Ã¹° Á¶È¸
+		// 15ë²ˆ ê²Œì‹œë¬¼ ì¡°íšŒ
 //		BoardVO board = session.selectOne("dao.BoardDAO.selectMap2", 15);
 //		System.out.println(board);
 		Map<String, Object> map = session.selectOne("dao.BoardDAO.selectMap2", 15);

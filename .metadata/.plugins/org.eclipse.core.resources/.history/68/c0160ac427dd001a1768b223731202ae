@@ -1,9 +1,0 @@
-package di.xml.n02;
-
-public class Car {
-	
-	private Tire tire;
-	
-	
-
-}

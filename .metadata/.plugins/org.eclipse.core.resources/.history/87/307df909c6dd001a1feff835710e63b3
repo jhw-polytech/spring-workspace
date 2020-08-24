@@ -1,5 +1,0 @@
-package practice.calculator;
-
-public interface Number {
-
-}

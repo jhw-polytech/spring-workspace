@@ -1,7 +1,0 @@
-package di.quiz.shapes;
-
-public interface Shape {
-	
-	public double getArea(int side, int side2);
-
-}

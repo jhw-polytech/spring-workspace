@@ -15,40 +15,56 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import kr.ac.kopo.board.dao.BoardDAO;
+import kr.ac.kopo.board.service.BoardService;
 import kr.ac.kopo.board.vo.BoardVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:config/spring/spring-mvc.xml"})
 public class MybatisTest {
 
-	@Autowired
+	@Autowired // ì˜ì¡´ì£¼ì…ì„ ë°›ì•„ì˜¬ ìˆ˜ ìˆëŠ”ì§€ í…ŒìŠ¤íŠ¸
 	private DataSource ds;
 	
 	@Autowired
 	private SqlSessionTemplate session;
+	
+	@Autowired
+	private BoardDAO boardDAO; 
+	
+	@Autowired
+	private BoardService boardService;
 
-	// DataSource Å×½ºÆ® -- ds°¡ °´Ã¼°¡ ÀÖ´Ù¸é nullÀÌ ¾Æ´Ò°ÍÀÌ´Ù
-	@Ignore // @Test¸¦ ÁÖ¼®Ã³¸® ÇØµµ µÇÁö¸¸, @Ignore ¾î³ëÅ×ÀÌ¼ÇÀ» È°¿ëÇØ Å×½ºÆ® ´ë»ó¿¡¼­ Á¦¿Ü½ÃÅ³ ¼öµµ ÀÖ´Ù.
+	// DataSource í…ŒìŠ¤íŠ¸ -- ds ê°ì²´ê°€ ì œëŒ€ë¡œ ìƒì„±ë˜ì—ˆëŠ”ì§€ í…ŒìŠ¤íŠ¸! ì˜ ìƒì„±ë˜ì—ˆë‹¤ë©´ nullì´ ì•„ë‹ˆê² ì§€! 
+	@Ignore // @Testë¥¼ ì£¼ì„ì²˜ë¦¬í•´ë„ ë˜ì§€ë§Œ, @Ignore ë¥¼ ë¶™ì—¬ë„ í…ŒìŠ¤íŠ¸ ëŒ€ìƒì—ì„œ ì œì™¸ì‹œí‚¬ ìˆ˜ ìˆë‹¤.
 	@Test
-	public void dsÅ×½ºÆ®() throws Exception {
-		// System.out.println(ds); -- ÀÌ·¸°Ô ÇØµµ Å×½ºÆ® °¡´É
-		assertNotNull(ds); // dsÀÇ °ªÀÌ nullÀÌ ¾Æ´Ï¸é ¼º°ø! ¾Æ´Ï¸é ½ÇÆĞ
-		// assertNull(ds); // dsÀÇ °ªÀÌ nullÀÌ¸é ¼º°ø
+	public void dsí…ŒìŠ¤íŠ¸() throws Exception {
+		// System.out.println(ds); -- dsê°€ ì¡´ì¬í•˜ë©´ ì°ì–´ì¤€ë‹¤
+		assertNotNull(ds); // dsê°€ nullì´ ì•„ë‹ ë•Œ í…ŒìŠ¤íŠ¸ ì„±ê³µ
+		// assertNull(ds); // dsê°€ nullì¼ ë•Œ í…ŒìŠ¤íŠ¸ ì„±ê³µ
 	}
 	
 	@Ignore
 	@Test
-	public void sqlSessionÅ×½ºÆ®() throws Exception {
+	public void sqlSessioní…ŒìŠ¤íŠ¸() throws Exception {
 		assertNotNull(session);
 	}
 	
+	@Ignore
 	@Test
-	public void ÀüÃ¼°Ô½Ã±ÛÁ¶È¸Å×½ºÆ®() throws Exception {
-		List<BoardVO> list = session.selectList("board.dao.BoardDAO.selectAll");
+	public void ì „ì²´ê²Œì‹œê¸€ì¡°íšŒí…ŒìŠ¤íŠ¸() throws Exception {
+//		List<BoardVO> list = session.selectList("board.dao.BoardDAO.selectAll");
+		List<BoardVO> list = boardDAO.selectAll();
 		
 		for(BoardVO board : list) {
 			System.out.println(board);
 		}
+	}
+	
+	@Test
+	public void ê²Œì‹œíŒìƒì„¸Test() throws Exception {
+		BoardVO board = boardDAO.selectByNo(5);
+		System.out.println(board);
 	}
 	
 }

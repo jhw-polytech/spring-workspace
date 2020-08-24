@@ -88,7 +88,13 @@
 			<artifactId>spring-test</artifactId>
 			<version>4.3.28.RELEASE</version>
 			<scope>test</scope>
-			<!-- 실제 release 할 때에는 junit과 관련된 파일들은 필요하지 않다.  -->
+			<!-- 실제 release 할 때에는 junit과 관련된 파일들은 필요하지 않다. -->
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
 		</dependency>
 
 	</dependencies>
