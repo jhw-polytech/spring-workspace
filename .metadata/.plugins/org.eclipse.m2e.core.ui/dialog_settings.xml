@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\spring-workspace\Mission-Spring\src\main\java\kr\ac\kopo\member\controller\MemberController2.java"/>
 			<item value="D:\spring-workspace\spring-mvc\src\main\webapp"/>
 			<item value="D:\spring-workspace"/>
 		</list>
@@ -46,12 +47,16 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="bed.test"/>
+			<item value="com.ez.hana"/>
 			<item value="kr.ac.kopo"/>
 		</list>
 		<list key="name">
 			<item value="spring-mvc"/>
 		</list>
 		<list key="artifactId">
+			<item value="TestBed"/>
+			<item value="HanaEZ-UP"/>
 			<item value="spring-mvc"/>
 			<item value="Lecture-Spring"/>
 		</list>

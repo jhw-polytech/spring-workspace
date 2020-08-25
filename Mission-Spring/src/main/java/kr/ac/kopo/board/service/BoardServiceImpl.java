@@ -16,9 +16,7 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Override
 	public List<BoardVO> selectAllBoard() {
-		List<BoardVO> boardList = boardDAO.selectAll();
-		
-		
+		List<BoardVO> boardList = boardDAO.selectAll();		
 		return boardList;
 	}
 
@@ -27,4 +25,10 @@ public class BoardServiceImpl implements BoardService {
 		BoardVO board = boardDAO.selectByNo(no);
 		return board;
 	}
+	
+	@Override
+	public void insert(BoardVO boardVO) {
+		 boardDAO.insert(boardVO);
+	}
+	
 }

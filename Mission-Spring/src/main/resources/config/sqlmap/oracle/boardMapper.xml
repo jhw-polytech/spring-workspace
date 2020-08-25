@@ -6,18 +6,19 @@
 	<resultMap type="boardVO" id="boardMap">
 		<result column="view_cnt" property="viewCnt" />
 		<result column="reg_date" property="regDate" />
-	</resultMap>
-	
-	<!-- 얘가 하는 역할..? -->
+	</resultMap>	
 	<select id="selectByNo" resultMap="boardMap" parameterType="int">
 		select no, title, writer, content, view_cnt
 		,to_char(reg_date, 'yyyy-mm-dd') as reg_date
 		from t_board
 		where no= #{no}
 	</select>
-
    <select id="selectAll" resultType="boardVO">
       select no, title, writer, to_char(reg_date, 'yy-mm-dd') as regDate
       from t_board
+   </select>
+   <select id="insert" resultType="boardVO">
+      insert into t_board(no, title, writer, content)
+      values(seq_t_board_no.nextval, #{title}, #{writer}, #{content})
    </select>
 </mapper>

@@ -55,8 +55,23 @@
     
 	<mvc:default-servlet-handler />
 	
+	<!-- ModelAndView("dir1/filename") 이런식으로 생성자에 인자로 요청 uri를 넣으면, 뒤에 자동으로 .jsp가 붙은걸로 인식 -->
 	<mvc:view-resolvers>
 		<mvc:jsp prefix="/WEB-INF/jsp/" suffix=".jsp" />
 	</mvc:view-resolvers>
+	
+   <bean class="kr.ac.kopo.interceptor.LoginInterceptor" id="loginInterceptor" />
+   <mvc:interceptors>
+      <mvc:interceptor>
+      	<!-- <mvc:mapping path="/board" /> -->
+      	<!-- <mvc:mapping path="/board/*" /> -->
+         <mvc:mapping path="/**/"/> <!-- depth가 어떻든 그 이하의 모든 파일 -->
+         <mvc:exclude-mapping path="/login"/>
+         <mvc:exclude-mapping path="/logout"/>
+         <mvc:exclude-mapping path="/board"/>
+         <mvc:exclude-mapping path="/resources/**"/> <!-- /* 는 바로 밑 , /**는 모든파일까지 통칭! -->
+         <ref bean="loginInterceptor" />
+      </mvc:interceptor>
+   </mvc:interceptors>
 
 </beans>

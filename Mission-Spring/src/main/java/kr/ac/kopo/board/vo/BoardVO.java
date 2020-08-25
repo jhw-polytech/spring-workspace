@@ -1,14 +1,28 @@
 package kr.ac.kopo.board.vo;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.Length;
+
+
 public class BoardVO {
 
+
 	private int no;
+	@Length(min = 2, max = 100, message = "제목에 2글자 이상을 입력해주세요.")
+//	@NotEmpty(message = "필수항목입니다") 위 @Length에서 걸러지므로 얘는 필요 없다
 	private String title;
+	@Pattern(regexp = "^[A-Za-z0-9]*$", message="첫글자는 특수기호를 사용할 수 없습니다.")
+	//"^[A-Za-z0-9]*$ 시작은 무조건 대문자" --- 더 많은 규칙은 '자바 정규표현식' 검색하여 공부
+	@NotEmpty(message = "필수항목입니다")
 	private String writer;
+	@NotEmpty(message = "필수항목입니다")
 	private String content;
 	private int viewCnt;
 	private String regDate;
-
+	
+	   
 	public BoardVO() {
 		// TODO Auto-generated constructor stub
 	}

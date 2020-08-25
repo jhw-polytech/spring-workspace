@@ -10,10 +10,16 @@ public interface BoardService {
 	 * 전체게시글 조회
 	 * @return
 	 */
-	List<BoardVO> selectAllBoard();
+	public List<BoardVO> selectAllBoard();
 
 	/*
 	 * 상세게시글 조회
 	 */
-	BoardVO selectBoardByNo(int no);
+	public BoardVO selectBoardByNo(int no);
+	
+	/*
+	 * 새로운 글 등록
+	 */
+	public void insert(BoardVO boardVO);
+	
 }

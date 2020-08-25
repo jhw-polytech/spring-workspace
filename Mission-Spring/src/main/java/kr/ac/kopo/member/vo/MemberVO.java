@@ -5,6 +5,7 @@ public class MemberVO {
 	private String id;
 	private String password;
 	private String type;
+	
 	public String getId() {
 		return id;
 	}
@@ -24,6 +25,9 @@ public class MemberVO {
 		this.type = type;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "MemberVO [id=" + id + ", password=" + password + ", type=" + type + "]";
+	}
 	
 }

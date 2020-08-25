@@ -35,11 +35,13 @@ public class MemberController2 {
 	}
 	 */
 	
-	@PostMapping
+	@PostMapping("/login")
 	public String login(MemberVO memberVO, HttpSession session) { // 그냥 session 객체를 달라고 하면 됨
 //		public String login(MemberVO memberVO, HttpServletRequest request) {
 //		System.out.println(memberVO);
 		
+		// login form에서 사용자가 입력한 id, password는
+		// input태그의 name속성의 값과 VO의 멤버변수명이 같으면 자동으로 값이 들어가서 객체가 생성된다.
 		MemberVO loginVO = memberService.login(memberVO);
 		
 		// 로그인 실패

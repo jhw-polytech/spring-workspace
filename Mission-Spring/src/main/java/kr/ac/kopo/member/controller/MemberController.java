@@ -30,7 +30,7 @@ public class MemberController {
 		return "/login/login";
 	}
 
-	@PostMapping
+	@PostMapping("/login") //RequestMapping 대체
 	public ModelAndView login(MemberVO memberVO, HttpSession session) { // 그냥 session 객체를 달라고 하면 됨
 		
 		MemberVO loginVO = memberService.login(memberVO);
@@ -39,12 +39,19 @@ public class MemberController {
 		// 로그인 실패
 		if(loginVO == null) {
 			mav.setViewName("redirect:/login");
-		}	
-		
-		// 로그인 성공
-		mav.setViewName("redirect:/");
-		mav.addObject("loginVO", loginVO); // 이렇게 하면 request 객체에 등록되기 때문에, 아무리 해도 로그인 되지 않는다.
-		// 원래 mav들은 request에 등록해주는거임. 그러나 login만큼은 session에 저장시켜야 한다. >> 클래스 위에 @SessionAttributes({"loginVO"})를 써준 이유!
+		} else {	
+			// 로그인 성공
+			String dest = (String)session.getAttribute("dest");
+			if(dest == null) {
+				mav.setViewName("redirect:/");
+			} else {
+				mav.setViewName("redirect:/" + dest);				
+				session.removeAttribute("dest");
+			}					
+			
+			mav.addObject("loginVO", loginVO); // 이렇게 하면 request 객체에 등록되기 때문에, 아무리 해도 로그인 되지 않는다.
+			// 원래 mav들은 request에 등록해주는거임. 그러나 login만큼은 session에 저장시켜야 한다. >> 클래스 위에 @SessionAttributes({"loginVO"})를 써준 이유!
+		}
 		
 		return mav;
 	}
@@ -53,7 +60,7 @@ public class MemberController {
 	public String logout(SessionStatus status) {
 		// session.invalidate(); ->  @SessionAttributes 를 써서 등록시킨 애는 이걸로 세션에서 삭제시킬 수 없다
 		
-		status.setComplete(); // 이렇게 세션에 등록된 loginVO를 만료시켜줘야 함
+		status.setComplete(); // 이렇게 세션을 만료시켜줘야 한다 / 세션에 등록된 값들이 초기화된다
 		System.out.println(status.isComplete());
 		
 		return "redirect:/";

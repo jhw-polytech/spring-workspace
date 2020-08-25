@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.board.vo.BoardVO;
 
-@Repository // 정보를 관리하는 클래스들은 일반적으로 @Repository 를 많이 쓴다 --? 다시 듣기 25분 정도
+@Repository // 데이터베이스를 access해서 CRUD해주는 DAO 클래스들의 객체 생성을 위한 어노테이션
 public class BoardDAOImpl implements BoardDAO {
 
 	@Autowired // 자동주입
@@ -17,24 +17,19 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public List<BoardVO> selectAll() {
-		List<BoardVO> boardList = sqlSession.selectList("board.dao.BoardDAO.selectAll");
-		
-		
-		
+		List<BoardVO> boardList = sqlSession.selectList("board.dao.BoardDAO.selectAll");		
 		return boardList;
-	}
-
-	@Override
-	public void insert(BoardVO board) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public BoardVO selectByNo(int no) {
 		BoardVO board = sqlSession.selectOne("board.dao.BoardDAO.selectByNo", no);
-		
 		return board;
+	}
+	
+	@Override
+	public void insert(BoardVO boardVO) {
+		sqlSession.insert("board.dao.BoardDAO.insert", boardVO);
 	}
 
 }

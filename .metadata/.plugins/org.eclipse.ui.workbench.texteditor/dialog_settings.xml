@@ -4,10 +4,13 @@
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="Template"/>
 		<item key="wrap" value="true"/>
 		<item key="incremental" value="false"/>
 		<list key="findhistory">
+			<item value="template"/>
+			<item value="doaction"/>
+			<item value="list"/>
 			<item value="supported"/>
 			<item value="side"/>
 			<item value=""/>
