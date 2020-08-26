@@ -47,9 +47,10 @@ public class BoardController {
 	public ModelAndView detail(@PathVariable("no") int boardNo) {
 		BoardVO board = boardService.selectBoardByNo(boardNo);
 		ModelAndView mav = new ModelAndView("board/detail");
-		mav.addObject("board", board);		
+		mav.addObject("board", board);
 		return mav;
 	}
+
 	
 	// http://localhost:9999/Mission-Spring/board/detail?no=12
 	/*
@@ -75,6 +76,9 @@ public class BoardController {
 	 * 공유영역에 올리기 return mav; }
 	 */
 	
+	
+	
+	
 	@GetMapping("/board/write")
 	public String writeForm(Model model) {
 		BoardVO board = new BoardVO();
@@ -89,7 +93,7 @@ public class BoardController {
 		// 왜냐하면 @GetMapping("/board/write") 안의 uri 앞에 prefix와 postfix가 붙는다고 생각하면 된다.(같은 uri를 찾는다.)
 	}
 	
-	@PostMapping("board/write")
+	@PostMapping("/board/write")
 	public String write(@Valid BoardVO boardVO, BindingResult result) {
 		// @Valid를 쓰면 넘어온 값을 validation 하고, 그에대한 결과는 BindingResult 객체가 알고있다.
 		// BindingResult : binding 된 result를 알려주는 객체

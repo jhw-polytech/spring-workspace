@@ -18,8 +18,7 @@
 <table border="1" style="width: 100%">
 	<tr>
 		<td rowspan="2" style="width: 190px; height: 58px;"><a
-			href="/Mission-Spring"> <img
-				src="/Mission-Spring/resources/images/logo.png"></a></td>
+			href="/Mission-Spring"> <img src="${ pageContext.request.contextPath }/resources/images/logo.png" style="width: 150px; height: 45px;"></a></td>
 		<td align=right>
 			<!-- <a href="javascript:window.external.AddFavorite('http://localhost:9999/Mission-WEB', '첫 번째 나의 웹')"> -->
 			<!-- <a href="javascript:window.addFavorite()"> --> <a href="#"

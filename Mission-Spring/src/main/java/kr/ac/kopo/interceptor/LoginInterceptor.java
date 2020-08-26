@@ -19,10 +19,20 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			throws Exception {
 		// System.out.println("preHandle()...");
 		
+		
+		if (handler instanceof HandlerMethod) {
+            HandlerMethod method = (HandlerMethod)handler;
+            System.out.println("메소드 : "+ method);
+            System.out.println("controller : " + method.getBean());
+         }
+		
+
+		/*
 		// handler는 어떤 Controller의 어떤 method를 호출하는건지 알고있다 >> 로그파일 만들 때 사용할 수 있다. >> log4j를 쓰면 더 쉬움 ㅋㅋ
 		HandlerMethod method = (HandlerMethod)handler;
 		System.out.println("메소드 : " + method);
 		System.out.println("controller : " + method.getBean());
+		*/
 		
 		// 로그인 여부 체크
 		HttpSession session = request.getSession();
