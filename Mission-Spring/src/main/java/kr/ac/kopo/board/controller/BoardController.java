@@ -3,6 +3,7 @@ package kr.ac.kopo.board.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.ac.kopo.board.service.BoardService;
 import kr.ac.kopo.board.vo.BoardVO;
+import kr.ac.kopo.member.vo.MemberVO;
 
 @Controller
 public class BoardController {
@@ -28,7 +30,7 @@ public class BoardController {
 	/*
 	@RequestMapping("/")
 	public String home() {
-		return "/";
+		return "index2";
 	}
 	*/
 	
@@ -52,10 +54,10 @@ public class BoardController {
 	}
 
 	
-	// http://localhost:9999/Mission-Spring/board/detail?no=12
-	/*
 //	public ModelAndView detail(HttpServletRequest request) {
 //		int boardNo = Integer.parseInt(request.getParameter("no"));
+	/*
+	// http://localhost:9999/Mission-Spring/board/detail?no=12
 	@RequestMapping("/board/detail")
 	public ModelAndView detail(@RequestParam("no") int boardNo) {
 		
@@ -69,24 +71,20 @@ public class BoardController {
 	}
 	*/
 	
-	/*
-	 * @RequestMapping("/sample") public ModelAndView sample() { List<BoardVO>
-	 * boardList = boardService.selectAllBoard(); ModelAndView mav = new
-	 * ModelAndView("sample/sample"); mav.addObject("boardList", boardList); //
-	 * 공유영역에 올리기 return mav; }
-	 */
-	
-	
 	
 	
 	@GetMapping("/board/write")
-	public String writeForm(Model model) {
+	public String writeForm(Model model, HttpSession session) {
 		BoardVO board = new BoardVO();
-		board.setTitle("hello");
+		// board.setTitle("hello");
+
+		MemberVO loginVO = (MemberVO)session.getAttribute("loginVO");
+		if(loginVO != null)
+			board.setWriter(loginVO.getId());
 		
 		model.addAttribute("boardVO", new BoardVO());
 		
-		return "board/write";
+		return "board/write";		
 		
 		// 메소드를 void형으로 하고 실행부에 아래와 같이만 써줘도 된다
 		// model.addAttribute("boardVO", new BoardVO());
@@ -106,8 +104,6 @@ public class BoardController {
 			System.out.println("오류발생 . . .");
 			return "board/write";
 		}
-		
-		boardService.insert(boardVO);
 				
 		return "redirect:/board";
 	}

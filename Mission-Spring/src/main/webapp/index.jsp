@@ -29,6 +29,8 @@
 			<br>
 		</c:otherwise>
 	</c:choose>
+	
+			<a href="${ pageContext.request.contextPath }/home">홈</a>
 
 	<footer>
       <%@include file="/WEB-INF/jsp/include/footer.jsp" %>

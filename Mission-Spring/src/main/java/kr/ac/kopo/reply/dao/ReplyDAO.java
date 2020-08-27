@@ -11,7 +11,7 @@ import kr.ac.kopo.reply.vo.ReplyVO;
 
 public interface ReplyDAO {
 
-	/*
+	/**
 	 * 댓글등록
 	 */
 	void insert(ReplyVO replyVO);
@@ -28,5 +28,11 @@ public interface ReplyDAO {
 	 * @param replyNo 삭제할 댓글번호
 	 */
 	void delete(int replyNo);
-
+	
+	/**
+	 * 댓글번호에 해당 게시물번호 조회
+	 * @param replyNo 댓글번호
+	 * @return 댓글번호에 해당 게시물번호
+	 */
+	int selectBoardNo(int replyNo);
 }

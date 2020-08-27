@@ -31,5 +31,11 @@ public class ReplyDAOImpl implements ReplyDAO {
 	public void delete(int replyNo) {
 		sqlSession.delete("reply.dao.ReplyDAO.delete", replyNo);		
 	}
+	
+	@Override
+	public int selectBoardNo(int replyNo) {
+		int boardNo = sqlSession.selectOne("reply.dao.ReplyDAO.selectBoardNo", replyNo);
+		return boardNo;
+	}
 
 }

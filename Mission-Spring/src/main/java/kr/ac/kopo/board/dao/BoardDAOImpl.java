@@ -31,5 +31,15 @@ public class BoardDAOImpl implements BoardDAO {
 	public void insert(BoardVO boardVO) {
 		sqlSession.insert("board.dao.BoardDAO.insert", boardVO);
 	}
+	
+	@Override
+	public void incrementReplyCnt(int no) {
+		sqlSession.update("board.dao.BoardDAO.incrementReplyCnt", no);		
+	}
+	
+	@Override
+	public void reduceReplyCnt(int no) {
+		sqlSession.update("board.dao.BoardDAO.reduceReplyCnt", no);
+	}
 
 }

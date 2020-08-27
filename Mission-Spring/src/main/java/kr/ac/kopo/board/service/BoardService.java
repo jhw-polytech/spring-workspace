@@ -16,10 +16,6 @@ public interface BoardService {
 	 * 상세게시글 조회
 	 */
 	public BoardVO selectBoardByNo(int no);
-	
-	/*
-	 * 새로운 글 등록
-	 */
-	public void insert(BoardVO boardVO);
+
 	
 }

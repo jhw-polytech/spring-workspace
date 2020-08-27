@@ -55,7 +55,22 @@ public class ReplyController {
 //	@RequestMapping(value="/reply/{replyNo}", method=RequestMethod.DELETE)
 	@DeleteMapping("/reply/{replyNo}")
 	public void deleteReply(@PathVariable("replyNo") int replyNo) {
+							// @RequestParam("boardNo") int boardNo 이렇게 boardNo도 받아올 수 있다.
 		// System.out.println("삭제할 댓글 번호 : " + replyNo);
 		replyService.removeReply(replyNo);
 	}
+	
+	@DeleteMapping("/reply/{replyNo}/{boardNo}")
+	public void deleteReply(@PathVariable("replyNo") int replyNo
+							, @PathVariable("boardNo") int boardNo) {
+		System.out.println(replyNo + " : " + boardNo);
+		
+		ReplyVO replyVO = new ReplyVO();
+		replyVO.setNo(replyNo);
+		replyVO.setBoardNo(boardNo);
+		
+		replyService.removeReply(replyVO);
+	}
+	
+	
 }

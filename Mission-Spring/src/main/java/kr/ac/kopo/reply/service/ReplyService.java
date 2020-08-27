@@ -12,5 +12,5 @@ public interface ReplyService {
 	void insertReply(ReplyVO replyVO);
 	List<ReplyVO> selectAllByBoardNo(int boardNo);
 	void removeReply(int replyNo);	
-	
+	void removeReply(ReplyVO replyVO);
 }

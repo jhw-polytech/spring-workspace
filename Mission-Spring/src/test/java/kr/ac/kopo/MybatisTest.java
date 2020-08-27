@@ -67,4 +67,9 @@ public class MybatisTest {
 		System.out.println(board);
 	}
 	
+	@Test
+	public void 댓글증가Test() throws Exception {
+		boardDAO.incrementReplyCnt(1);
+	}
+	
 }
